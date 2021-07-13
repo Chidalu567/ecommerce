@@ -28,12 +28,17 @@ const Main = () => {
           {/*Routes*/}
 
           {/*Homeroute to call the homescreen component*/}
-          <Route path="/" exact>
-            <Homescreen />
-          </Route>
+          <Switch>
+            <Route path="/" exact>
+              <Homescreen />
+            </Route>
 
-          {/*Route to show the product clicked on*/}
-          <Route path="/products/:id" children={<Productviewscreen />}></Route>
+            {/*Route to show the product clicked on*/}
+            <Route
+              path="/products/:id"
+              children={<Productviewscreen />}
+            ></Route>
+          </Switch>
         </main>
 
         <footer className="row center">
