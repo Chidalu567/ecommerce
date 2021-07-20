@@ -24,46 +24,68 @@ const CartScreen = () => {
   }, [dispatch, id, qty]); //useEffect hook definition
 
   return (
-    <div>
-      {cartItems.length == 0 ? (
-        <Message>
-          Cart Empty <Link to="/">Go shopping</Link>
-        </Message>
-      ) : (
-        <ul>
-          {cartItems.map((item) => {
-            return (
-              <main key={item.product} className="main">
-                <div className="cartitems contain">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="cartitems contain image"
-                  />
-                </div>
-                <div>
-                  <Link to={`/products/${item.product}`}>{item.name}</Link>
-                </div>
-                <div className="cartitems contain">
-                  <select value={item.qty}>
-                    {[...Array(Number(item.qty)).keys()].map((x) => (
-                      <option key={x + 1} value={x + 1}>
-                        {x + 1}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div className="cartitems contain price">{item.price}</div>
-                <div className="cartitems contain">
-                  <button type="button" className="cartitems contain button">
-                    remove
-                  </button>
-                </div>
-              </main>
-            );
-          })}
-        </ul>
-      )}
+    <div className="main_block">
+      <div className="col-1">
+        {cartItems.length === 0 ? (
+          <Message>
+            Cart Empty <Link to="/">Go shopping</Link>
+          </Message>
+        ) : (
+          <ul>
+            {cartItems.map((item) => {
+              return (
+                <main key={item.product} className="main">
+                  <div className="cartitems contain">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="cartitems contain image"
+                    />
+                  </div>
+                  <div>
+                    <Link to={`/products/${item.product}`}>{item.name}</Link>
+                  </div>
+                  <div className="cartitems contain">
+                    <select
+                      value={item.qty}
+                      onChange={(e) =>
+                        dispatch(
+                          addToCart(item.product, Number(e.target.value))
+                        )
+                      }
+                    >
+                      {[...Array(Number(item.qty)).keys()].map((x) => (
+                        <option key={x + 1} value={x + 1}>
+                          {x + 1}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="cartitems contain price">{item.price}</div>
+                  <div className="cartitems contain">
+                    <button type="button" className="cartitems contain button">
+                      remove
+                    </button>
+                  </div>
+                </main>
+              );
+            })}
+          </ul>
+        )}
+      </div>
+      <div className="col-2 cartscreen">
+        <div>
+          Number of quantities:
+          {cartItems.reduce((a, x) => a + Number(x.qty), 0)}
+          ($total price:{" "}
+          {cartItems.reduce((a, x) => a + Number(x.qty * x.price), 0)})
+        </div>
+        <div>
+          <button type="button" className="col-2_button">
+            Proceed to checkout
+          </button>
+        </div>
+      </div>
     </div>
   );
 }; //react component definition

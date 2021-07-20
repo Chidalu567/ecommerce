@@ -1,7 +1,7 @@
 const data = [
   {
     _id: 1,
-    price: "$120",
+    price: "120",
     name: "Demo name",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPjh_kk-WE_Mqm_XQ5K_3QC6WXn6IHkvjJRw&usqp=CAU",
@@ -13,7 +13,7 @@ const data = [
   {
     _id: 2,
     name: "Demo name",
-    price: "$200",
+    price: "200",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPjh_kk-WE_Mqm_XQ5K_3QC6WXn6IHkvjJRw&usqp=CAU",
     numReviews: 10,
@@ -25,7 +25,7 @@ const data = [
   {
     _id: 3,
     name: "Demo name",
-    price: "$40",
+    price: "40",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPjh_kk-WE_Mqm_XQ5K_3QC6WXn6IHkvjJRw&usqp=CAU",
     numReviews: 10,
@@ -36,7 +36,7 @@ const data = [
   {
     _id: 4,
     name: "Demo name",
-    price: "$120",
+    price: "120",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPjh_kk-WE_Mqm_XQ5K_3QC6WXn6IHkvjJRw&usqp=CAU",
     numReviews: 10,
@@ -47,7 +47,7 @@ const data = [
   {
     _id: 5,
     name: "Demo name",
-    price: "$280",
+    price: "280",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRslel5Hc8onrk-eD5XM53OhsTbsYRKeRXrdQ&usqp=CAU",
     numReviews: 10,
@@ -58,7 +58,7 @@ const data = [
   {
     _id: 6,
     name: "Demo name",
-    price: "$300",
+    price: "300",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPjh_kk-WE_Mqm_XQ5K_3QC6WXn6IHkvjJRw&usqp=CAU",
     numReviews: 10,
@@ -69,7 +69,7 @@ const data = [
   {
     _id: 7,
     name: "Demo name",
-    price: "$450",
+    price: "450",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPjh_kk-WE_Mqm_XQ5K_3QC6WXn6IHkvjJRw&usqp=CAU",
     numReviews: 10,
