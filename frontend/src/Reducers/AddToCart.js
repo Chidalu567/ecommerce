@@ -1,3 +1,5 @@
+import { removeFromCart } from "../types";
+
 export const AddToCart = (state = { cartItems: [] }, action) => {
   //get the item passed in payload
   //check if item exist already in cart
@@ -19,6 +21,16 @@ export const AddToCart = (state = { cartItems: [] }, action) => {
       } else {
         return { ...state, cartItems: [...state.cartItems, item] }; //create a new object
       }
+    case removeFromCart:
+      //get the id
+      //filter the cartItem to remove the id
+      //update the cartItem
+      const removed_id = action.payload; //get the id
+      const newCartItem = state.cartItems.filter(
+        (x) => x.product !== removed_id
+      );
+      localStorage.removeItem("cartItems"); //remove cartItems from localstorage
+      return { ...state, cartItems: newCartItem };
     default:
       return state;
   }

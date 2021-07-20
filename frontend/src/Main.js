@@ -6,7 +6,7 @@ import Homescreen from "./component/routes/screens/Homescreen";
 import Productviewscreen from "./component/routes/screens/ProductViewScreen";
 import CartScreen from "./component/routes/screens/CartScreen";
 import { useSelector } from "react-redux";
-
+import { Signin } from "./component/routes/screens/Signin";
 const Main = () => {
   //For cart items
   //we get the cartItem from reducer state saved in initial state of store
@@ -53,6 +53,9 @@ const Main = () => {
 
             {/*Route for cart screen*/}
             <Route path="/cart/:id?" children={<CartScreen />}></Route>
+
+            {/*Route for sign in screen*/}
+            <Route path="/sign-in" children={<Signin />}></Route>
           </Switch>
         </main>
 

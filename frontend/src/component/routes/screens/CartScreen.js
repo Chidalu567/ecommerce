@@ -7,6 +7,7 @@ import { Message } from "../../Message";
 import { Link } from "react-router-dom";
 import "../../../styles/error.css";
 import "../../../styles/cart.css";
+import { removeAction } from "../../../Actions/removeFromCart";
 
 const CartScreen = () => {
   //we get the id and query passed from the url using useParams and useHistory
@@ -42,7 +43,7 @@ const CartScreen = () => {
                       className="cartitems contain image"
                     />
                   </div>
-                  <div>
+                  <div className="cartitems contain name">
                     <Link to={`/products/${item.product}`}>{item.name}</Link>
                   </div>
                   <div className="cartitems contain">
@@ -63,7 +64,11 @@ const CartScreen = () => {
                   </div>
                   <div className="cartitems contain price">{item.price}</div>
                   <div className="cartitems contain">
-                    <button type="button" className="cartitems contain button">
+                    <button
+                      type="button"
+                      className="cartitems contain button"
+                      onClick={() => dispatch(removeAction(item.product))}
+                    >
                       remove
                     </button>
                   </div>
@@ -81,7 +86,11 @@ const CartScreen = () => {
           {cartItems.reduce((a, x) => a + Number(x.qty * x.price), 0)})
         </div>
         <div>
-          <button type="button" className="col-2_button">
+          <button
+            type="button"
+            className="col-2_button"
+            onClick={() => history.push("/sign-in?redirect=shipping")}
+          >
             Proceed to checkout
           </button>
         </div>
