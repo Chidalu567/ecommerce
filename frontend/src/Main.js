@@ -1,26 +1,38 @@
 import React from "react";
 import data from "./data/data";
 import Product from "./component/Product";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Homescreen from "./component/routes/screens/Homescreen";
 import Productviewscreen from "./component/routes/screens/ProductViewScreen";
+import CartScreen from "./component/routes/screens/CartScreen";
+import { useSelector } from "react-redux";
 
 const Main = () => {
+  //For cart items
+  //we get the cartItem from reducer state saved in initial state of store
+  //if the length is greater than 0 we show the badge number based on the length of the cartItem array
+  const cart = useSelector((state) => state.cart); //get the state from the reducer state
+  const { cartItems } = cart; //cartItems
   return (
     <Router>
       <div className="grid-container">
         <header className="row">
           {/*The brand section*/}
           <div>
-            <a href="" className="brand">
+            <Link to="/" className="brand">
               Amazon
-            </a>
+            </Link>
           </div>
 
           {/*The cart and sign-in section*/}
           <div>
-            <a href="">cart</a>
-            <a href="">sign-in</a>
+            <Link to="/cart">
+              cart
+              {cartItems.length > 0 && (
+                <span className="badge">{cartItems.length}</span>
+              )}
+            </Link>
+            <Link to="/sign-in">sign-in</Link>
           </div>
         </header>
 
@@ -38,6 +50,9 @@ const Main = () => {
               path="/products/:id"
               children={<Productviewscreen />}
             ></Route>
+
+            {/*Route for cart screen*/}
+            <Route path="/cart/:id?" children={<CartScreen />}></Route>
           </Switch>
         </main>
 

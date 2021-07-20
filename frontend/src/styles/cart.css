@@ -1,0 +1,47 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 1rem;
+  background-color: aliceblue;
+  padding: 1rem;
+}
+
+.cartitems.contain {
+  width: 100px;
+}
+
+.cartitems.contain.image {
+  max-width: fit-content;
+}
+.cartitems.contain.price {
+  font-family: Monoton;
+  font-size: 2rem;
+}
+.cartitems.contain.button {
+  padding: 10px;
+  border: none;
+  border-radius: 0.5rem;
+}
+.cartitems.contain.button:hover {
+  background-color: #83eeff;
+}
+
+select {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+select:focus {
+  border: 2px inset #1b03a3;
+}
+
+select > option {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  width: 100%;
+}

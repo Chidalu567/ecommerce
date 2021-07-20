@@ -1,9 +1,9 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useHistory } from "react-router-dom";
 
 import Rating from "../../rating";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import productView from "../../../Actions/productView"; //action
 
@@ -15,8 +15,10 @@ then we create a page for the specific product
 */
 const Productviewscreen = () => {
   const { id } = useParams(); //get the id parsed from the url
+  const history = useHistory(); //allows us to manually route a path
 
   const dispatch = useDispatch(); //dispatch definition
+  const [quantity, setQuantity] = useState(1); //useState definition
 
   useEffect(() => {
     dispatch(productView(id)); //action call to transport action to reducer
@@ -27,6 +29,10 @@ const Productviewscreen = () => {
   ); //get the state value of the reducer in the store
 
   const product = single_product[0];
+
+  const handleAddToCart = (e) => {
+    history.push(`/cart/${id}?qty=${quantity}`); //manually route to a path
+  }; //javascript function definition
 
   return (
     <div>
@@ -93,11 +99,38 @@ const Productviewscreen = () => {
                     </div>
                   </div>
                 </li>
-                <li className="row center">
-                  <button type="button" className="btn">
-                    Add to cart
-                  </button>
-                </li>
+                {product.inStockCount > 0 && (
+                  <>
+                    <div className="row">
+                      <li>
+                        <div>Qty:</div>
+                        <div>
+                          <select
+                            value={quantity}
+                            onChange={(e) => setQuantity(e.target.value)}
+                          >
+                            {[...Array(product.inStockCount).keys()].map(
+                              (x) => (
+                                <option key={x + 1} value={x + 1}>
+                                  {x + 1}
+                                </option>
+                              )
+                            )}
+                          </select>
+                        </div>
+                      </li>
+                    </div>
+                    <li className="row center">
+                      <button
+                        type="button"
+                        className="btn"
+                        onClick={handleAddToCart}
+                      >
+                        Add to cart
+                      </button>
+                    </li>
+                  </>
+                )}
               </ul>
             </div>
           </div>

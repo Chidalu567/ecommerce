@@ -180,3 +180,12 @@ img.large {
 .rating span:last-child {
   color: dimgray;
 }
+
+.badge {
+  background-color: red;
+  color: white;
+  border-radius: 0.5rem;
+  padding: 0.2rem 0.5rem;
+  margin-left: 0.1rem;
+}
+

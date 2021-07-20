@@ -1,0 +1,8 @@
+.error {
+  background-color: #ffbaba;
+  padding: 1rem;
+  margin: 10px 10px;
+  font-family: FontAwesome;
+  padding-left: 1rem;
+  font-size: 20px;
+}
