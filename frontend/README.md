@@ -22,7 +22,7 @@ npm start
 
 ### SCREENS AVAILABLE
 
-*Home screen
-*Product screen
-*Cart screen
-*Sign-in screen
+* Home screen
+* Product screen
+* Cart screen
+* Sign-in screen
