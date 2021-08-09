@@ -6,6 +6,7 @@ export const getProducts = () => async (dispatch) => {
     method: "GET",
     url: "http://localhost:5000/api/products",
   }).then((res) => {
-    dispatch({ type: get_products, payload: res.data });
+    const { data } = res;
+    dispatch({ type: get_products, payload: data.data });
   });
 };

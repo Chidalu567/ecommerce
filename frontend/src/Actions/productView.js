@@ -15,7 +15,7 @@ const productView = (_id) => async (dispatch) => {
     const { data } = await axios.get(
       `http://localhost:5000/api/products/${_id}`
     ); //make an ajax request to server
-    dispatch({ type: product_view_success, payload: data }); //dispatch action to reducer
+    dispatch({ type: product_view_success, payload: data.data }); //dispatch action to reducer
   } catch (error) {
     console.log(error);
   }

@@ -1,27 +1,31 @@
 const express = require("express"); //require express data from module
 const router = express.Router(); //use express router
 const data = require("../data/data");
+const ProductModel = require("../model/productModel"); //require data from node modules
+const ObjectId = require("mongodb").ObjectId;
 
-/*Request methods*/
-router.get("/", (req, res) => {
-  if (data) {
-    //if data exist
-    res.status(200).json(data); //send json as response to user
-    res.end(); //end responsr
+//get Method
+router.get("/", async (req, res) => {
+  // const products = await ProductModel.insertMany(data.products); //iinsert many documents into database
+  const products = await ProductModel.find({}); //find all document in database
+  if (products) {
+    //send json as response to user
+    res.status(200).json({ data: products });
   } else {
-    res.status(400).json({ msg: "No data to render to user" }); //send json as response to user
-    res.end(); //end response
+    res.status(404).json({ msg: "Product empty" });
   }
 }); //get method
 
-//dynamic parameter of the specific products
-router.get("/:id", (req, res) => {
-  const { id } = req.params; //get the iid parameter from request
-  const product = data.filter((product) => {
-    return product._id === parseInt(id);
-  });
-  res.status(200).json(product); //send response as json to user
-  res.end();
-});
+//for individual product
+router.get("/:id", async (req, res) => {
+  //destructure the value of id from object
+  const { id } = req.params;
+  const product = await ProductModel.find({ _id: ObjectId(id) }); //find a document in database
+  if (product) {
+    res.status(200).json({ data: product }); //send json as response to user
+  } else {
+    res.status(400).json({ msg: "product not found" }); //send json as response to user
+  }
+}); //get methodwith dynamic parameter
 
 module.exports = router; //export for external file to use

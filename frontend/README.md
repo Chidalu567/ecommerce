@@ -25,4 +25,4 @@ npm start
 _[x] Home screen
 _[x] Product screen
 _[x] Cart screen
-_[] Sign-in screen
+_[x] Sign-in screen

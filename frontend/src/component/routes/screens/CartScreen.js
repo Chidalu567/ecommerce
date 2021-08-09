@@ -89,6 +89,7 @@ const CartScreen = () => {
           <button
             type="button"
             className="col-2_button"
+            disabled={cartItems.length > 0 ? false : true}
             onClick={() => history.push("/sign-in?redirect=shipping")}
           >
             Proceed to checkout

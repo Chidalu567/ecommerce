@@ -1,10 +1,13 @@
 import React from "react";
+import { Spin } from "antd";
 
 export const Loading = () => {
+  // <i className="fa fa-spinner fa-spin"></i>;
   return (
     <div>
       <span>
-        <i className="fa fa-spinner fa-spin"></i>Loading
+        <Spin />
+        Loading
       </span>
     </div>
   );

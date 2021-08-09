@@ -8,7 +8,7 @@ export const addToCart = (_id, qty) => async (dispatch, getState) => {
     const { data } = await axios.get(
       `http://localhost:5000/api/products/${_id}`
     ); //make an ajax request to the server
-    const product = data[0]; //get the object
+    const product = data.data[0]; //get the object
     dispatch({
       type: "addToCart",
       payload: {
