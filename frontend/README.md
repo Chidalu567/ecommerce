@@ -18,7 +18,7 @@
 npm start
 ```
 
-> **This application is not meant for production yet unless being specified by chidalu**
+> **This application is not meant for production yet unless being specified by The owner of the Repo**
 
 ### SCREENS AVAILABLE
 
