@@ -26,3 +26,7 @@ npm start
 * Product screen
 * Cart screen
 * Sign-in screen
+* Register screen
+* Payment screen
+* Shipping screen
+* Order screen
