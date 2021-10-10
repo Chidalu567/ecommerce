@@ -18,6 +18,7 @@ import { Signin_screen } from "./component/routes/screens/Signin";
 import { signOut } from "./Actions/signin";
 import { RegisterScreen } from "./component/routes/screens/Register";
 import Payment from "./component/routes/screens/Payment";
+import { Order } from "./component/routes/screens/Order";
 
 const Main = () => {
   const history = useHistory(); //for manual routing in search box
@@ -33,7 +34,6 @@ const Main = () => {
   //if the length of the array is >0 we show the username else we show signin
   const user = useSelector((state) => state.user); //get the state value of the state
   const { userInfo } = user;
-  console.log(userInfo);
 
   //signout function to call signout action
   const dispatch = useDispatch();
@@ -139,6 +139,9 @@ const Main = () => {
 
             {/* Route for payment screen */}
             <Route path="/payment" children={<Payment />}></Route>
+
+            {/*Route for order screen*/}
+            <Route path="/make_order" children={<Order />}></Route>
           </Switch>
         </main>
 

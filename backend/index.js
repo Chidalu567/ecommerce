@@ -7,13 +7,20 @@ const app = express(); //create express application
 const ProductsRouter = require("./routes/productsApi"); //require data from module
 const userApi = require("./routes/userApi"); //require from module
 const mongoose = require("mongoose"); //require data from node module
+const dotenv = require("dotenv");
+const OrderRouter = require("./routes/orderApi");
+
+dotenv.config();
 
 //connect to database
-mongoose.connect("mongodb://localhost:27017/Amazona", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-});
+mongoose.connect(
+  `mongodb+srv://Ecommerce:${process.env.data_pass}@ecommerce.o8zkv.mongodb.net/Ecommerce?retryWrites=true&w=majority`,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+  }
+);
 
 //middlewares
 /*express.json(),external router,urlencoded extended false,cors,helmet*/
@@ -34,9 +41,10 @@ app.use(helmet.hidePoweredBy()); //hide the server engine used
 //routers
 app.use("/api/products", ProductsRouter); //middle to use external routers
 app.use("/api/users/", userApi); //middleware to use external router
+app.use("/api/order_detail", OrderRouter); //middle to use external router
 
 //application port number
-const port = process.env.port || 5000;
+const port = process.env.PORT || 5000;
 
 app.listen(port, "localhost", () => {
   console.log(`server is running on localhost:${port}`);

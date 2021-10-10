@@ -3,6 +3,7 @@ const router = express.Router();
 const joi = require("joi"); //require from nodemodule
 const userModel = require("../model/user_model"); //require
 const bcrypt = require("bcryptjs"); //for hashing password
+const gToken = require("../utils/Authentication");
 // const hashPassword = require("../utils/hashpass");
 
 //for valdating signin
@@ -46,7 +47,12 @@ router.post("/signin", async (req, res) => {
     const result = await bcrypt.compare(password, emailExist.password); //compare the password together
 
     if (result) {
-      res.status(200).json({ msg: "Sign in successfully", user: [emailExist] });
+      //generate token for the user
+
+      const token = gToken(emailExist);
+      res
+        .status(200)
+        .json({ msg: "Sign in successfully", user: [emailExist, token] });
       res.end();
     }
   }

@@ -1,0 +1,19 @@
+[{
+  "_id": {
+    "$oid": "610de8ab8cd9d5261bea01ac"
+  },
+  "isadmin": false,
+  "username": "chidalu okechukwu",
+  "email": "chidalu@gmail.com",
+  "password": "$2a$10$OT/K0OPFqPt0vcVO1J4M1.6FmtWRCTL5dWbdV.VYmbyfsPrenpWq6",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6114ef6df7045913e4b04666"
+  },
+  "isadmin": false,
+  "username": "React React",
+  "email": "React@gmail.com",
+  "password": "$2a$10$M/eqDw52miaR6kgCVPEvpOMzU6AitvX21jDe.PvN6AD1vi0GJLgrC",
+  "__v": 0
+}]

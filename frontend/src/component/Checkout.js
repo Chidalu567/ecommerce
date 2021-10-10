@@ -9,6 +9,11 @@ import {
 //ui
 const { Step } = Steps; //get the step from steps
 
+/**
+ * 
+ * @param {*} props 
+ * @returns 
+ */
 export const Checkout = (props) => {
   return (
     <Steps current={props.step} responsive={true}>
