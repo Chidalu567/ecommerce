@@ -6,7 +6,7 @@
   "proxy": "http://localhost:3000",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --trace-warnings /home/chidalu/Documents/ecommerce/amazon_clone/backend/index.js"
+    "start": "node index.js"
   },
   "author": "Chidalu",
   "license": "ISC",
