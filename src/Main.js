@@ -57,7 +57,7 @@ const Main = () => {
           {/*The brand section*/}
           <div>
             <Link to="/" className="brand">
-              Chizzy
+              Ekene Store
             </Link>
           </div>
 
