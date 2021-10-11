@@ -1,0 +1,52 @@
+.Order_Container {
+  display: grid;
+  justify-content: start;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+}
+
+div .i1 {
+  grid-column-start: 1;
+  margin-bottom: 1rem;
+}
+div .i2 {
+  grid-column-start: 1;
+  margin-bottom: 1rem;
+}
+.Order_Container > div {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #eeeeee;
+}
+
+div .i3 {
+  grid-column-start: 2;
+  margin-right: 2rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+div .i4 {
+  grid-column-start: 1;
+  overflow: scroll;
+  height: 20rem;
+}
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #eeeeee;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #203040;
+}
+@media screen and (max-width: 600px) {
+  .Order_Container {
+    display: grid;
+    grid-template-columns: 100%;
+  }
+  div .i3 {
+    grid-column-start: 1;
+  }
+}
