@@ -13,7 +13,7 @@ const productView = (_id) => async (dispatch) => {
   dispatch({ type: product_view_loading }); //dispatch to transport action to reducer
   try {
     const { data } = await axios.get(
-      `http://localhost:5000/api/products/${_id}`
+      `https://ekenecom.herokuapp.com/api/products/${_id}`
     ); //make an ajax request to server
     dispatch({ type: product_view_success, payload: data.data }); //dispatch action to reducer
   } catch (error) {

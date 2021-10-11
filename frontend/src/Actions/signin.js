@@ -6,7 +6,7 @@ export const Signin = (param) => async (dispatch, getState) => {
   const { email, password } = param;
 
   const result = await axios
-    .post("http://localhost:5000/api/users/signin", {
+    .post("https://ekenecom.herokuapp.com/api/users/signin", {
       email: email,
       password: password,
     })

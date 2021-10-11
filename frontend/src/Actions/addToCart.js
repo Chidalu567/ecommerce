@@ -6,7 +6,7 @@ export const addToCart = (_id, qty) => async (dispatch, getState) => {
   //save the items gotten from the reducer state to local storage for persistence
   try {
     const { data } = await axios.get(
-      `http://localhost:5000/api/products/${_id}`
+      `https://ekenecom.herokuapp.com/products/${_id}`
     ); //make an ajax request to the server
     const product = data.data[0]; //get the object
     dispatch({

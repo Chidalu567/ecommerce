@@ -4,7 +4,7 @@ export const RegisterAction = (param) => async (dispatch) => {
   const { firstname, lastname, email, password } = param;
   const username = firstname + " " + lastname;
   const user = axios
-    .post("http://localhost:5000/api/users/register", {
+    .post("https://ekenecom.herokuapp.com/api/users/register", {
       username,
       email,
       password,
